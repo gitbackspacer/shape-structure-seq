@@ -40,26 +40,16 @@ def goertzel(x, period):
    """
    Nterms defined here
    Kterm selected here
-   omega= 2 * p * Kterm / Nterms;
-   cr = cos(omega);
-   ci = sin(omega);
-   coeff = 2 * cr;
-   
-   sprev = 0;
-   sprev2 = 0;
-   for each index n in range 0 to Nterms-1
-     s = x[n] + coeff * sprev - sprev2;
-     sprev2 = sprev;
-     sprev = s;
-   end
+  
    power = sprev2 * sprev2 + sprev * sprev - coeff * sprev * sprev2
    """
    L=len(x)
+
    coeff=2.0*cos(2*pi/period)
    sprev, sprev2 =0.0,0.0
    for t in range(L):
      s= x[t] +  coeff * sprev - sprev2
-     #sprev2, sprev =  sprev,  s   # 
+     #sprev2, sprev =  sprev,  s   # using swap 
      sprev2=sprev
      sprev=s
    power = sqrt( (sprev*sprev) + (sprev2*sprev2)  - coeff*sprev*sprev2 )  
