@@ -4,7 +4,7 @@
 
 We find periodicity at various frequencies
 
-- Normalize to a unit variance to avoid scale effect
+- Normalize to a unit variance to avoid the scale effect
 - Add reactivity vector or read from a file
 - outputs: csv and the corresponding plot
 
